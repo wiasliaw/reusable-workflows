@@ -22,8 +22,15 @@ on:
         required: false
         type: boolean
 
+      foundry-profile:
+        default: "default"
+        required: false
+        type: "string"
+
 jobs:
   forge-build:
+    env:
+      FOUNDRY_PROFILE: ${{ inputs.foundry-profile }}
     runs-on: "ubuntu-latest"
     steps:
       - name: "Check out the repo"
